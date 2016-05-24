@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class HomeController {
 
-	@RequestMapping( method=RequestMethod.GET)
+	@RequestMapping(value="/home" , method=RequestMethod.GET)
 	public String home(){
 		System.out.println("PASSANDO PELO HOME CONTROLLER!");
 		return "index";

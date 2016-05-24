@@ -11,15 +11,15 @@ http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc.xsd">
  
 
-<context:component-scan base-package="org.ntvru.audiocast.controller" ></context:component-scan>
-
+<!-- <context:component-scan base-package="org.ntvru.audiocast.controller" ></context:component-scan> -->
 <mvc:annotation-driven></mvc:annotation-driven>
 
 <!-- Views mapped in JSPs under /WEB-INF/jsp -->
-<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-<property name="prefix" value="/WEB-INF/jsp/" />
-<property name="suffix" value=".jsp" />
-</bean>
+<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
+<!-- <property name="prefix" value="/WEB-INF/jsp/" /> -->
+<!-- <property name="suffix" value=".jsp" /> -->
+<!-- </bean> -->
+
 
 
 </beans>
