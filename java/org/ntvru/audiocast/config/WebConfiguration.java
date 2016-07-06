@@ -3,6 +3,7 @@ package org.ntvru.audiocast.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -12,7 +13,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("org.ntvru.audiocast.controller")
+@ComponentScan(basePackages={"org.ntvru.audiocast.controller","org.ntvru.audiocast.service","org.ntvru.audiocast.repository"})
 public class WebConfiguration extends WebMvcConfigurerAdapter {
 
 	@Override
@@ -47,6 +48,12 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 		return viewResolver;
 	}
 	
+	
+	@Bean(name = "multipartResolver")
+	public CommonsMultipartResolver multipartResolver(){
+		
+		return new CommonsMultipartResolver();
+	}
 	
 	
 }
