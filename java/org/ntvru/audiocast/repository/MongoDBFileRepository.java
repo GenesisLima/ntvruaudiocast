@@ -42,7 +42,7 @@ public class MongoDBFileRepository  {
 	}
 
 	public void save(FileDocument file) {
-		BasicDBObject query = new BasicDBObject("fileId",file.getFileId());
+		BasicDBObject query = new BasicDBObject("fileId",file.getId());
 	DBObject dbFile = transform(file);
 	
 		DBObject fromDB = getCollection().findAndModify(query, dbFile);
@@ -89,7 +89,7 @@ private DBCollection getCollection(){
 	
 	private DBObject transform(FileDocument file){
 		
-		BasicDBObject dbFile = new BasicDBObject("fileId", file.getFileId()).
+		BasicDBObject dbFile = new BasicDBObject("fileId", file.getId()).
 				append("filePath", file.getFilePath()).append("fileName", file.getFileName()).append("fileSize", file.getFileSize()).append("fileType", file.getFileType());
 				return dbFile;
 	}

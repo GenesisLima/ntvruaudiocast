@@ -7,9 +7,11 @@ import org.bson.types.ObjectId;
 import org.ntvru.audiocast.config.MongoConfiguration;
 import org.ntvru.audiocast.model.FileDocument;
 import org.ntvru.audiocast.model.Show;
+import org.ntvru.audiocast.repository.CounterRepository;
 import org.ntvru.audiocast.repository.FileRepository;
 import org.ntvru.audiocast.repository.MongoDBShowRepository;
 import org.ntvru.audiocast.repository.ShowRepository;
+import org.ntvru.audiocast.service.CounterService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -24,9 +26,10 @@ public class MongoMain {
 		
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfiguration.class);
 		FileRepository repository = ctx.getBean(FileRepository.class);
-		
+		CounterRepository cRepository = ctx.getBean(CounterRepository.class);
+		CounterService service = ctx.getBean(CounterService.class);
 		FileDocument fd = new FileDocument();
-		fd.setFileId(new String("13"));
+		fd.setId(service.getNextSequence("fileDocument"));
 		fd.setFileName("gest2");
 		fd.setFilePath("C:\\uploads\\2016\\7analogy.png");
 		fd.setFileType("image/JPG");

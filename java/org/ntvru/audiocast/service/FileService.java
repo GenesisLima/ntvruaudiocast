@@ -29,11 +29,16 @@ public class FileService {
     
     @Autowired Mongo mongo;
     
-   
+   @Autowired CounterService counterService;
 
     public void save(String path, String name, Long size, String type) {
-    	System.out.println("PATH:"+path+name);    	
-    	new MongoDBFileRepository(mongo,"fileDocument","showdb").save(new FileDocument(path, name, size, type));
+    	System.out.println("PATH:"+path+name);  
+    	FileDocument fileDocument = new FileDocument(path, name, size, type);
+    	System.out.println("File Document:"+fileDocument.getFileName());
+    	fileDocument.setId(String.valueOf(counterService.getNextSequence("fileDocument")));
+    	    	System.out.println("File Document:"+fileDocument.getId());
+    	    	repository.save(fileDocument);
+    	//new MongoDBFileRepository(mongo,"fileDocument","showdb").save(fileDocument);
     	System.out.println("FIND ALL"+this.findAll());
     }
 

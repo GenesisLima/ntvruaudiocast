@@ -1,6 +1,7 @@
 package org.ntvru.audiocast.config;
 
 import org.ntvru.audiocast.controller.HomeController;
+import org.ntvru.audiocast.repository.CounterRepository;
 import org.ntvru.audiocast.repository.FileRepository;
 import org.ntvru.audiocast.repository.MongoDBFileRepository;
 import org.ntvru.audiocast.service.FileService;
@@ -11,7 +12,7 @@ public class AudiocastApplicationInitializer extends AbstractAnnotationConfigDis
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		
-		return new Class<?>[]{HomeController.class,ServiceConfiguration.class,MongoConfiguration.class,FileRepository.class};
+		return new Class<?>[]{HomeController.class,ServiceConfiguration.class,MongoConfiguration.class,FileRepository.class,CounterRepository.class};
 	}
 
 	@Override

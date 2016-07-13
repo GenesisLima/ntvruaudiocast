@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 /**
  * Created by NTVRU
  */
-@Document
+@Document(collection="fileDocuments")
 public class FileDocument implements Serializable {
 
     /**
@@ -19,8 +19,8 @@ public class FileDocument implements Serializable {
 	private static final long serialVersionUID = 1259176997906412295L;
 
 
-	
-	private String fileId;
+	@Id
+	private String id;
 
   
     private String filePath;
@@ -48,6 +48,13 @@ public class FileDocument implements Serializable {
  
 	
 
+
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getFilePath() {
         return filePath;
     }
@@ -79,17 +86,20 @@ public class FileDocument implements Serializable {
     public void setFileType(String fileType) {
         this.fileType = fileType;
     }
-	public String getFileId() {
-		return fileId;
-	}
-	public void setFileId(String fileId) {
-		this.fileId = fileId;
+
+
+	
+	@Override
+	public String toString() {
+		return "FileDocument [id=" + id + ", filePath=" + filePath
+				+ ", fileName=" + fileName + ", fileSize=" + fileSize
+				+ ", fileType=" + fileType + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((fileId == null) ? 0 : fileId.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 	@Override
@@ -101,19 +111,16 @@ public class FileDocument implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		FileDocument other = (FileDocument) obj;
-		if (fileId == null) {
-			if (other.fileId != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!fileId.equals(other.fileId))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "FileDocument [fileId=" + fileId + ", filePath=" + filePath
-				+ ", fileName=" + fileName + ", fileSize=" + fileSize
-				+ ", fileType=" + fileType + "]";
-	}
+
+	
+	
 
     
     
