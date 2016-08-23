@@ -1,5 +1,6 @@
 package org.ntvru.audiocast.config;
 
+import org.ntvru.audiocast.rss.AudiocastRSSViewer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -9,11 +10,12 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.BeanNameViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages={"org.ntvru.audiocast.controller","org.ntvru.audiocast.service","org.ntvru.audiocast.repository"})
+@ComponentScan(basePackages={"org.ntvru.audiocast.controller","org.ntvru.audiocast.service","org.ntvru.audiocast.repository","org.ntvru.audiocast.rss"})
 public class WebConfiguration extends WebMvcConfigurerAdapter {
 
 	@Override
@@ -26,6 +28,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 		registry.addResourceHandler("/icons/*").addResourceLocations("/icons/");
 		registry.addResourceHandler("/images/*").addResourceLocations("/images/");
 		registry.addResourceHandler("/MDicons/*").addResourceLocations("/MDicons/");
+		registry.addResourceHandler("/upload-dir/*").addResourceLocations("/upload-dir/");
 		
        
 
@@ -54,6 +57,17 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 		
 		return new CommonsMultipartResolver();
 	}
+
+	@Bean
+	public AudiocastRSSViewer audiocastRSSViewer(){
+		
+		return new AudiocastRSSViewer();
+	}
 	
+	@Bean
+	public ApplicationContextProvider applicationContextProvider(){
+		return new ApplicationContextProvider();
+	}
+
 	
 }

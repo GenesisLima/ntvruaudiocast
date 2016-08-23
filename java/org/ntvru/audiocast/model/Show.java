@@ -1,18 +1,25 @@
 package org.ntvru.audiocast.model;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection="shows")
 public class Show {
+	
+	
+	
 	@Id
-	private int id;
-	private String showNO;
+	private String id;
+	
     private String name;
 	private String topic;
 	private String synopsis;
-	private String mediaPath;
+	private String url;
 	
+	private FileDocument fileDocument;
 	
 	
 	
@@ -23,15 +30,41 @@ public class Show {
 	
 
 
-
-	public Show(String showNO, String name, String topic, String synopsis,
-			String mediaPath) {
+    @PersistenceConstructor
+	public Show(String name, String topic, String synopsis
+			,FileDocument fileDocument,String url) {
 		super();
-		this.showNO = showNO;
 		this.name = name;
 		this.topic = topic;
-		this.synopsis = synopsis;
-		this.mediaPath = mediaPath;
+		this.synopsis = synopsis;		
+		this.fileDocument = fileDocument;
+		this.url = url;
+	}
+
+
+
+
+    @Transient 
+    //@JsonProperty("isDownloaded")
+    public Boolean isDownloaded() {
+        return StringUtils.isNotEmpty(this.fileDocument.getFileName());
+    }
+
+
+
+
+
+
+	public FileDocument getFileDocument() {
+		return fileDocument;
+	}
+
+
+
+
+
+	public void setFileDocument(FileDocument fileDocument) {
+		this.fileDocument = fileDocument;
 	}
 
 
@@ -57,39 +90,21 @@ public class Show {
 		this.synopsis = synopsis;
 	}
 
-
-
-	public String getMediaPath() {
-		return mediaPath;
-	}
-
-
-
-	public void setMediaPath(String mediaPath) {
-		this.mediaPath = mediaPath;
+	public String getUrl() {
+		return url;
 	}
 
 
 
 
-
-	public String getShowNO() {
-		return showNO;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 
 
 
-
-	public void setShowNO(String showNO) {
-		this.showNO = showNO;
-	}
-
-
-
-
-
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -97,10 +112,15 @@ public class Show {
 
 
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-	
+
+
+
+
+
+
 	
 	
     

@@ -1,18 +1,12 @@
 package org.ntvru.audiocast.repository;
 
-import java.util.List;
-
 import org.ntvru.audiocast.model.Show;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface ShowRepository {
+public interface ShowRepository extends MongoRepository<Show, String>{
          
 	public long count();
-	public void save(Show show);
-	public void delete(Show show);
-	public List<Show> findAll();
-	public Show findByShowNo(String showNo);
-	public Show findByShowNo(Long id);
-	public void delete(Long id);
+
 	
 	
 }

@@ -22,7 +22,7 @@ public class MongoConfiguration {
 	
 	@Bean
 	public Mongo mongo() throws UnknownHostException{
-		return new MongoClient();		
+		return new MongoClient("localhost", 27017);		
 	}
 //	@Bean
 //	public ShowRepository showRepository(Mongo mongo){

@@ -29,7 +29,7 @@ public class MongoMain {
 		CounterRepository cRepository = ctx.getBean(CounterRepository.class);
 		CounterService service = ctx.getBean(CounterService.class);
 		FileDocument fd = new FileDocument();
-		fd.setId(service.getNextSequence("fileDocument"));
+		fd.setId(String.valueOf(service.getNextSequence("fileDocument")));
 		fd.setFileName("gest2");
 		fd.setFilePath("C:\\uploads\\2016\\7analogy.png");
 		fd.setFileType("image/JPG");

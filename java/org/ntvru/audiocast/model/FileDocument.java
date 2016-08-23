@@ -35,6 +35,7 @@ public class FileDocument implements Serializable {
     public FileDocument() {
         super();
     }
+    
     @PersistenceConstructor
     public FileDocument(String filePath, String fileName, Long fileSize, String fileType) {
         this.filePath = filePath;
