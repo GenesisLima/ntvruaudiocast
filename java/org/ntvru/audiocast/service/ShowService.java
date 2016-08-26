@@ -27,7 +27,7 @@ public class ShowService {
 		FileDocument fileDocument = new FileDocument(path, name, size, type);
 		fileDocument.setId(String.valueOf(counterService.getNextSequence("fileDocument")));	
 		 System.out.println("URL: "+url+fileDocument.getId()+"/"+name);
-		Show show = new Show(showName,showTopic,showSynopsis,fileDocument,url+fileDocument.getId()+"/"+name);
+		Show show = new Show(showName,showTopic,showSynopsis,fileDocument,url+fileDocument.getId());
 		show.setId(String.valueOf(counterService.getNextSequence("shows")));
 		//show.setUrl(url);
 		repository.save(show);

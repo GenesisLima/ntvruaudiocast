@@ -74,7 +74,7 @@ public class FileUploadController {
         String newFileMessage = "O upload do arquivo " + name + " foi realizado com sucesso!"; 
         String alreadyExistsMessage =  "O arquivo " + name + " já foi salvo anteriormente!"; 
       
-        String url = "http://"+request.getLocalAddr()+":"+request.getLocalPort()+request.getContextPath()+"/download/file/";
+        String url = "http://"+request.getLocalAddr()+":"+request.getLocalPort()+request.getContextPath()+"/downloads/files/";
         
        
         try {

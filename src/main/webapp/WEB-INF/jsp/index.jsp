@@ -12,10 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="resources/assets/icons/favicon.ico" rel="icon" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+      rel="stylesheet" />
        <!-- Angular Material style sheet -->
-  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
-    
+ <link rel="stylesheet" href="resources/assets/css/angular-material.min.css">    
    
   
   
@@ -41,7 +40,7 @@
           <script src="assets/js/respond.min.js"></script>
         <![endif]-->
     </head>
-<body>
+<body ng-app="starterApp" >
 <!-- Preloader -->
 <div id="preloader">
     <div id="status">&nbsp;</div>
@@ -174,6 +173,9 @@
                         <option value="Opiniao Pernambuco" selected>Opini&atilde;o Pernambuco</option>
     
   </select>
+  </div>
+                  	</div>
+                		
                   		</div>
                   	</div>
                 		<div class="col-md-12 wow bounceIn" data-wow-duration="1s" data-wow-delay="1s">
@@ -191,7 +193,7 @@
                   	<div class="row">
                   		<div class="col-md-12 wow bounceIn" data-wow-duration="1s" data-wow-delay="1s">
                   		<div class="form-group">
-                            <textarea class="form-control textarea" rows="3" name="synopsis" id="synopsis" placeholder="Sinopse"></textarea>
+                            <textarea class="form-control textarea" rows="3"  name="synopsis" id="synopsis" placeholder="Sinopse" style="height:154px"></textarea>
                   		</div>
                   	</div>
                     </div>
@@ -201,6 +203,14 @@
                       	<div class="row">
                   		<div class="col-md-12 wow bounceIn" data-wow-duration="1s" data-wow-delay="1s">
                   		<div class="form-group">   
+<!--                   		<div class="col-md-12 wow bounceIn" data-wow-duration="1s" data-wow-delay="1s"> -->
+<!--                   		<div class="form-group"> -->
+<!--                   		</div> -->
+<!--                   	</div> -->
+                            
+                           <span style="margin-right:600px;"><md-datepicker  ng-model="myDate" ></md-datepicker></span>
+                           
+
                   		             <button type="submit"   class="btn main-btn pull-right wow bounceIn" data-wow-duration="1s" data-wow-delay="1s">Salvar</button>   		                         
                            
                             <label class="btn main-btn pull-right wow bounceIn" style="margin-right:5px;" for="my-file-selector">
@@ -405,17 +415,21 @@ Mussum Ipsum, cacilds vidis litro abertis. Si num tem leite então bota uma pinga
     
     <!-- animation scrolling -->
     <script src="resources/assets/js/app.min.js"></script>
-    <!-- Angular Material requires Angular.js Libraries -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="resources/assets/js/angular.min.js"></script>
+  <script src="resources/assets/js/angular-animate.min.js"></script>
+  <script src="resources/assets/js/angular-aria.min.js"></script>
+  <script src="resources/assets/js/angular-messages.min.js"></script>
   
+  <!-- Angular Material Library -->
+  <script src="resources/assets/js/angular-material.min.js">
+  <script src="resources/assets/js/angular-route.js"></script>
    <script type="text/javascript">    
     /**
      * You must include the dependency on 'ngMaterial' 
      */
-    angular.module('BlankApp', ['ngMaterial']);
+  var app = angular.module('starterApp', ['ngMaterial']);
+   angular.module("myApp", ["ngRoute"]);
   </script>
 </body>
 </html>

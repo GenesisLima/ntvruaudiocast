@@ -77,7 +77,7 @@ public class FileDownloadController {
             Path path = Paths.get(dir + File.separator + name);
 
             String temp = path.getFileName().toString();
-             System.out.println("http://"+request.getLocalAddr()+":"+request.getLocalPort()+""+request.getContextPath()+"/download/file/"+showId+"/"+name);
+             System.out.println("http://"+request.getLocalAddr()+":"+request.getLocalPort()+""+request.getContextPath()+"/downloads/files/"+showId);
 //             String ipAddress = request.getHeader("X-FORWARDED-FOR");  
 //  		   if (ipAddress == null) {  
 //  			   ipAddress = request.getRemoteAddr(); 

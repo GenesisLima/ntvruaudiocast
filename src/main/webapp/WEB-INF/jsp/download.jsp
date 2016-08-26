@@ -57,7 +57,7 @@
 
             <tr bgcolor="${i.count % 2 == 0 ? '#f0f8ff' : '#f5f5dc'}">
                 <td>
-                    <a href="<c:url value="/download/file/${show.fileDocument.id}/${show.fileDocument.fileName}"/>" >
+                    <a href="<c:url value="/downloads/files/${show.fileDocument.id}"/>" >
                         <c:choose>
                             <c:when test="${show.fileDocument.fileType eq 'application/pdf'}">
                                 <img src="<c:url value="/image/pdf.png"/>" title="Download - ${show.fileDocument.fileName}"/>
@@ -69,7 +69,7 @@
                                 <img src="<c:url value="/image/doc.jpg"/>" title="Download - ${show.fileDocument.fileName}"/>
                             </c:when>
                             <c:otherwise>
-                                <img src="<c:url value="/download/file/${show.fileDocument.id}/${show.fileDocument.fileName}"/>" title="Download - ${show.fileDocument.fileName}"/>
+                                <img src="<c:url value="/downloads/files/${show.fileDocument.id}"/>" title="Download - ${show.fileDocument.fileName}"/>
                             </c:otherwise>
                         </c:choose>
                     </a>

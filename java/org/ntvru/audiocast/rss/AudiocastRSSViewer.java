@@ -17,6 +17,9 @@ import com.rometools.rome.feed.rss.Item;
 
 
 public class AudiocastRSSViewer extends AbstractRssFeedView {
+	
+	
+
 
 	@Override
 	protected List<Item> buildFeedItems(Map<String, Object> model,
@@ -27,8 +30,9 @@ public class AudiocastRSSViewer extends AbstractRssFeedView {
 		 
 		 for(Show show :listShows){
 			 Item item = new Item();
-			 
+			 		 
 			 Content content = new Content();
+			 
 			 content.setValue(show.getSynopsis());
 			 item.setContent(content);
 			 item.setTitle(show.getTopic());
@@ -36,6 +40,8 @@ public class AudiocastRSSViewer extends AbstractRssFeedView {
 			 Description description = new Description();
 			 description.setValue(show.getSynopsis());
              item.setDescription(description);
+             
+             
 			
              Enclosure enclosure = new Enclosure();
             
@@ -44,6 +50,8 @@ public class AudiocastRSSViewer extends AbstractRssFeedView {
              enclosure.setLength(4182295);
              item.getEnclosures().add(enclosure);
 			
+             
+             
 			items.add(item); 
 			 
 		 }
@@ -54,12 +62,17 @@ public class AudiocastRSSViewer extends AbstractRssFeedView {
 	@Override
 	protected void buildFeedMetadata(Map<String, Object> model, Channel feed,
 			HttpServletRequest request) {
+		
+		
+
+		
 		feed.setTitle("Feed de Conteúdo NTVRU");
 		feed.setDescription("Este feed distribui os produtos de áudio do Núcleo de TV e Rádio Universitária da UFPE");
 		feed.setLink("http://www.ufpe.br");
 		feed.setWebMaster("genesis.lima@ufpe.br");
 		super.buildFeedMetadata(model, feed, request);
 	}
+	
 	
 
 }
