@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!-- <?xml version="1.0" encoding="ISO-8859-1" ?> -->
+<?xml version="1.0" encoding="UTF8" ?>
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%> --%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
@@ -208,14 +211,16 @@
 <!--                   		</div> -->
 <!--                   	</div> -->
                             
-                           <span style="margin-right:600px;"><md-datepicker  ng-model="myDate" ></md-datepicker></span>
+                           <span style="margin-right:600px;"><md-datepicker  ng-model="myDate" md-placeholder="Enter date"></md-datepicker></span>
                            
 
                   		             <button type="submit"   class="btn main-btn pull-right wow bounceIn" data-wow-duration="1s" data-wow-delay="1s">Salvar</button>   		                         
                            
                             <label class="btn main-btn pull-right wow bounceIn" style="margin-right:5px;" for="my-file-selector">
                    
-    <input id="my-file-selector" class="form-control " name="file" type="file" style="display:none; " data-wow-duration="1s" data-wow-delay="1s" onchange="$('#path').html($(this).val());" >
+<!--     <input id="my-file-selector" class="form-control " name="file" type="file" style="display:none; " data-wow-duration="1s" data-wow-delay="1s" onchange="$('#path').html($(this).val());" > -->
+    <input id="my-file-selector" class="form-control " name="file" type="file" style="display:none; " data-wow-duration="1s" data-wow-delay="1s" >
+
     Upload
 </label>
                  
@@ -345,12 +350,12 @@
             	<h2 class="heading">Sobre o Sistema</h2>
                 <div class="col-md-6">
                 <p class="text-left">
-                Mussum Ipsum, cacilds vidis litro abertis. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! in elementis mé pra quem é amistosis quis leo. A ordem dos tratores não altera o pão duris Viva Forevis aptent taciti sociosqu ad litora torquent
+                Mussum Ipsum, cacilds vidis litro abertis. Todo mundo vÃª os porris que eu tomo, mas ninguÃ©m vÃª os tombis que eu levo! in elementis mÃ© pra quem Ã© amistosis quis leo. A ordem dos tratores nÃ£o altera o pÃ£o duris Viva Forevis aptent taciti sociosqu ad litora torquent
           </p>
           </div>
           <div class="col-md-6">
                 <p class="text-left">
-Mussum Ipsum, cacilds vidis litro abertis. Si num tem leite então bota uma pinga aí cumpadi! Atirei o pau no gatis, per gatis num morreus. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.          </p>
+Mussum Ipsum, cacilds vidis litro abertis. Si num tem leite entÃ£o bota uma pinga aÃ­ cumpadi! Atirei o pau no gatis, per gatis num morreus. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.          </p>
           </div>
             </div>
         </div>
@@ -424,12 +429,24 @@ Mussum Ipsum, cacilds vidis litro abertis. Si num tem leite então bota uma pinga
   <!-- Angular Material Library -->
   <script src="resources/assets/js/angular-material.min.js">
   <script src="resources/assets/js/angular-route.js"></script>
+  
+  <!-- Moment.js -->
+    <script src="resources/assets/js/moment-with-locales.js"></script>
+        <script src="resources/assets/js/moment.js"></script>
+    
+  
    <script type="text/javascript">    
     /**
      * You must include the dependency on 'ngMaterial' 
      */
   var app = angular.module('starterApp', ['ngMaterial']);
-   angular.module("myApp", ["ngRoute"]);
+    angular.module("myApp", ["ngRoute"]);
+    app.config(function($mdDateLocaleProvider) {
+    	  $mdDateLocaleProvider.formatDate = function(date) {
+    		    return moment(date).format('DD-MM-YYYY');
+    		  };
+    		});
+  
   </script>
 </body>
 </html>

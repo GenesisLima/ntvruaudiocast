@@ -8,7 +8,7 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * Created by NTVRU
+ * Created by Genesis Lima
  */
 @Document(collection="fileDocuments")
 public class FileDocument implements Serializable {

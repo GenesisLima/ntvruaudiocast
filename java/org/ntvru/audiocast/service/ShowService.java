@@ -7,7 +7,9 @@ import org.ntvru.audiocast.model.Show;
 import org.ntvru.audiocast.repository.ShowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+/**
+ * Created by Genesis Lima
+ */
 @Service
 public class ShowService {
 
@@ -28,7 +30,11 @@ public class ShowService {
 		fileDocument.setId(String.valueOf(counterService.getNextSequence("fileDocument")));	
 		 System.out.println("URL: "+url+fileDocument.getId()+"/"+name);
 		Show show = new Show(showName,showTopic,showSynopsis,fileDocument,url+fileDocument.getId());
+		//Show show = new Show(showName,showTopic,showSynopsis,fileDocument,url+fileDocument.getFileName());
 		show.setId(String.valueOf(counterService.getNextSequence("shows")));
+		 System.out.println("URL: "+url+fileDocument.getFileName()+"/"+name);
+
+
 		//show.setUrl(url);
 		repository.save(show);
 		

@@ -104,6 +104,12 @@
    	<artifactId>spring-messaging</artifactId>
    	<version>4.0.0.RELEASE</version>
    </dependency>
+   <dependency>
+   	<groupId>com.rometools</groupId>
+   	<artifactId>rome-modules</artifactId>
+   	<version>1.7.0</version>
+   </dependency>
+   
   </dependencies>
   <build>
     <finalName>audiocast</finalName>

@@ -18,6 +18,7 @@ public class Show {
 	private String topic;
 	private String synopsis;
 	private String url;
+	private String myDate;
 	
 	private FileDocument fileDocument;
 	
@@ -67,6 +68,20 @@ public class Show {
 		this.fileDocument = fileDocument;
 	}
 
+
+
+
+
+	public String getMyDate() {
+		return myDate;
+	}
+
+
+
+
+	public void setMyDate(String myDate) {
+		this.myDate = myDate;
+	}
 
 
 

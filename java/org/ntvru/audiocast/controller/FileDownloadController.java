@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Created by Ballem on 26/05/2015.
+ * Created by Genesis Lima on 26/10/2016.
  */
 @RestController
 @RequestMapping("download")
@@ -61,9 +61,8 @@ public class FileDownloadController {
         BufferedInputStream inputStream = null;
           System.out.println("SHOW ID: "+id);
         HttpHeaders headers = new HttpHeaders();
-           /*Add from Mongo*/
+           /*Added from Mongo*/
         Show show= service.findById(id);
-//TODO Do the findById method works
         System.out.println(show.getFileDocument());
         String dir = show.getFileDocument().getFilePath();
         String showId = String.valueOf(show.getFileDocument().getId());
@@ -77,7 +76,7 @@ public class FileDownloadController {
             Path path = Paths.get(dir + File.separator + name);
 
             String temp = path.getFileName().toString();
-             System.out.println("http://"+request.getLocalAddr()+":"+request.getLocalPort()+""+request.getContextPath()+"/downloads/files/"+showId);
+             System.out.println("LIST "+"http://"+request.getLocalAddr()+":"+request.getLocalPort()+""+request.getContextPath()+"/downloads/files/"+name);
 //             String ipAddress = request.getHeader("X-FORWARDED-FOR");  
 //  		   if (ipAddress == null) {  
 //  			   ipAddress = request.getRemoteAddr(); 

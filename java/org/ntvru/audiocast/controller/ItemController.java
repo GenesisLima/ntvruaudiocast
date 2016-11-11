@@ -18,7 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.text.ParseException;
-
+/**
+ * Created by Genesis Lima
+ */
 @RestController
 //@RequestMapping("/api/podcast/{idPodcast}/items")
 @RequestMapping("downloads")
@@ -36,7 +38,7 @@ protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @RequestMapping(value="/files/{id}", method = RequestMethod.GET)
     public void getEpisodeFile(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        logger.debug("Download du fichier d'item {}", id);
+        logger.debug("Download of item file {}", id);
         Show show= service.findById(id);
         System.out.println("SHOW ON ITEM CONTROLLER :"+show.getFileDocument().getFilePath()+"\\"+show.getFileDocument().getFileName());
       //  if (show.isDownloaded()) {

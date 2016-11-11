@@ -58,8 +58,10 @@ public class FileUploadController {
     @RequestMapping(value = "/file", method = RequestMethod.POST)
     public ModelAndView uploadFileHandler(@RequestParam("file") MultipartFile file, ModelMap model,RedirectAttributes redirectAttributes, Show show) throws UnknownHostException {
    System.out.println("Show "+show.toString()+"Nome: "+show.getName());
-   System.out.println("Show "+show.toString()+"Nome: "+show.getTopic());
-   System.out.println("Show "+show.toString()+"Nome: "+show.getSynopsis());
+   System.out.println("Show "+show.toString()+"Tema: "+show.getTopic());
+   System.out.println("Show "+show.toString()+"Sinopse: "+show.getSynopsis());
+   System.out.println("Show "+show.toString()+"Data: "+show.getMyDate());
+
    ModelAndView modelAndView = new ModelAndView("redirect:/home#novo_programa");
    
      
